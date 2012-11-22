@@ -1,0 +1,19 @@
+language: python
+python:
+    - "2.5"
+    - "2.6"
+    - "2.7"
+    - "3.1"
+    - "3.2"
+
+install:
+  - "pip install --editable ."
+  - "pip install --requirement dev_requirements.txt --use-mirrors"
+  - "python setup.py install"
+  
+script: py.test
+
+notifications:
+    email:
+        on_success: change
+        on_failure: change
