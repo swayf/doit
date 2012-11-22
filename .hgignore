@@ -32,3 +32,5 @@ doc/tutorial/foo.txt
 doc/tutorial/my_input.txt
 doc/tutorial/task1
 build
+syntax: glob
+.idea/*
