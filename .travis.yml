@@ -8,8 +8,7 @@ python:
 
 install:
   - "pip install --editable ."
-  - "pip install --requirement dev_requirements.txt --use-mirrors"
-  - "python setup.py install"
+
   
 script: py.test
 
