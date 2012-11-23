@@ -10,10 +10,6 @@ python:
 install:
   - "pip install . --use-mirrors"
 
-branches:
-  only:
-    - master
-    - test  
   
 script: py.test
 
