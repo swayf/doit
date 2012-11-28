@@ -1,3 +1,7 @@
+.. image:: https://secure.travis-ci.org/swayf/doit.png?branch=master
+   :alt: Build Status
+   :target: https://travis-ci.org/swayf/doit
+
 ================
 README
 ================
