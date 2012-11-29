@@ -219,23 +219,20 @@ def generate_tasks(func_name, gen_result, gen_doc=None):
     if isinstance(gen_result, dict):
         return [_generate_task_from_return(func_name, gen_result, gen_doc)]
 
-    # a generator
-    if isgenerator(gen_result):
-        tasks = {} # task_name: task
-        # the generator return subtasks as dictionaries
-        for task_dict, x_doc in flat_generator(gen_result, gen_doc):
-            _generate_task_from_yield(tasks, func_name, task_dict, x_doc)
 
-        if tasks:
-            return tasks.values()
-        else:
-            # special case task_generator did not generate any task
-            # create an empty group task
-            return [Task(func_name, None, doc=gen_doc, has_subtask=True)]
+    tasks = {} # task_name: task
+    # the generator return subtasks as dictionaries
+    for task_dict, x_doc in flat_generator(gen_result, gen_doc):
+        _generate_task_from_yield(tasks, func_name, task_dict, x_doc)
 
-    raise InvalidTask(
-        "Task '%s'. Must return a dictionary or generator. Got %s" %
-        (func_name, type(gen_result)))
+    if tasks:
+        return tasks.values()
+    else:
+        # special case task_generator did not generate any task
+        # create an empty group task
+        return [Task(func_name, None, doc=gen_doc, has_subtask=True)]
+
+
 
 
 
